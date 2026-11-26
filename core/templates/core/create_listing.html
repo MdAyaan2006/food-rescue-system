@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow border-0 rounded-4 overflow-hidden">
+            <div class="card-header bg-primary text-white py-3 text-center">
+                <h4 class="fw-bold mb-0">Donate Surplus Food</h4>
+            </div>
+            <div class="card-body p-5 bg-white">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3"><label class="fw-bold">Title</label>{{ form.title }}</div>
+                    <div class="mb-3"><label class="fw-bold">Description</label>{{ form.description }}</div>
+                    <div class="row mb-3">
+                        <div class="col-md-6"><label class="fw-bold">Quantity (kg)</label>{{ form.quantity_kg }}</div>
+                        <div class="col-md-6"><label class="fw-bold text-danger">Expiry Time</label>{{ form.expiry_time }}</div>
+                    </div>
+                    <div class="mb-4"><label class="fw-bold text-primary">Pickup Location</label>{{ form.location }}</div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold">Publish Donation</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<section class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-3 fw-bold text-primary mb-3">End Food Waste, Feed Communities.</h1>
+        <p class="lead text-muted mb-4 px-md-5">
+            We have already saved <strong>{{ total_kg }} kg</strong> of food, providing approximately <strong>{{ total_meals }} meals</strong> to those in need!
+        </p>
+        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center mb-5">
+            <a href="{% url 'create_listing' %}" class="btn btn-primary btn-lg px-5 fw-bold shadow">Donate Food</a>
+            <a href="{% url 'feed' %}" class="btn btn-outline-primary btn-lg px-5 fw-bold shadow">Find Food</a>
+        </div>
+        
+        <div class="row text-center mt-5">
+            <div class="col-md-4 mb-4">
+                <div class="p-4 bg-white shadow-sm rounded-4 border-bottom border-primary border-4 h-100">
+                    <h1 class="fw-bold text-primary display-4">30%</h1>
+                    <p class="text-muted fw-bold text-uppercase small mb-2">Global Food Waste</p>
+                    <p class="text-secondary small">One-third of all food produced is wasted while millions go hungry.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="p-4 bg-white shadow-sm rounded-4 border-bottom border-primary border-4 h-100">
+                    <h1 class="fw-bold text-primary display-4">1 in 9</h1>
+                    <p class="text-muted fw-bold text-uppercase small mb-2">People in Need</p>
+                    <p class="text-secondary small">Nearly 800 million people globally do not have enough to eat every day.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="p-4 bg-white shadow-sm rounded-4 border-bottom border-primary border-4 h-100">
+                    <h1 class="fw-bold text-primary display-4">0%</h1>
+                    <p class="text-muted fw-bold text-uppercase small mb-2">Our Waste Goal</p>
+                    <p class="text-secondary small">By connecting surplus with scarcity, we aim to eliminate local food waste.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h2 class="fw-bold text-primary mb-4">Bridging the Gap</h2>
+                <p class="text-secondary fs-5">
+                    FoodRescue is a platform built to tackle the logistics of food waste. Whether you are a restaurant with extra trays of biryani or a bakery with unsold bread, we make it easy to reach local families.
+                </p>
+                <p class="text-secondary fs-5">
+                    Our system ensures transparency, real-time tracking, and a verified community of donors and receivers.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <div class="p-4 p-lg-5 bg-white rounded-4 shadow-sm">
+                    <h3 class="fw-bold text-primary mb-4 text-center">How the Process Takes Place</h3>
+                    <div class="d-flex mb-4">
+                        <div class="me-3 text-primary fs-3 fw-bold">01.</div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Post a Listing</h5>
+                            <p class="text-muted small">Donors enter the food details, quantity, and current location.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex mb-4">
+                        <div class="me-3 text-primary fs-3 fw-bold">02.</div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Real-Time Feed</h5>
+                            <p class="text-muted small">The dashboard updates instantly so receivers can browse active donations.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <div class="me-3 text-primary fs-3 fw-bold">03.</div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Claim & Pickup</h5>
+                            <p class="text-muted small">Food is claimed, contact details are shared, and the waste is prevented!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 text-center bg-white border-top">
+    <div class="container py-4">
+        <h2 class="fw-bold mb-3 text-dark">Ready to make a difference?</h2>
+        <p class="text-muted mb-4">Register as a Donor or Receiver and start saving food today.</p>
+        <a href="{% url 'signup' %}" class="btn btn-primary btn-lg px-5 shadow-sm">Join Our Community</a>
+    </div>
+</section>
+{% endblock %}

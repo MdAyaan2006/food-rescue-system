@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Create Listing - Food Rescue{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow border-0 rounded-4">
+            <div class="card-header bg-success text-white py-3 rounded-top-4">
+                <h4 class="mb-0 fw-bold">🍲 Donate Surplus Food</h4>
+            </div>
+            <div class="card-body p-4 p-md-5 bg-white">
+                <p class="text-muted mb-4">Fill out the details below to list available food. This helps receivers know exactly what is available and when it needs to be picked up.</p>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="row">
+                        <div class="col-md-8 mb-3">
+                            <label class="form-label fw-bold">Title (What is the food?)</label>
+                            {{ form.title }}
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-bold">Quantity (kg)</label>
+                            {{ form.quantity_kg }}
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Description (Dietary info, packaging, etc.)</label>
+                        {{ form.description }}
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-bold text-danger">Expiry Date & Time</label>
+                        {{ form.expiry_time }}
+                        <div class="form-text">When does this food become unsafe to eat?</div>
+                    </div>
+
+                    <h5 class="fw-bold text-success border-bottom pb-2 mb-3">Location Details</h5>
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Latitude</label>
+                            {{ form.latitude }}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Longitude</label>
+                            {{ form.longitude }}
+                        </div>
+                        <div class="form-text">Note: We will automate these coordinates with GPS in a later module! For now, you can leave them blank or enter numbers.</div>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end border-top pt-4">
+                        <a href="{% url 'feed' %}" class="btn btn-outline-secondary px-4">Cancel</a>
+                        <button type="submit" class="btn btn-success px-5 fw-bold">Publish Donation</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-primary">🏆 Impact Leaderboard</h1>
+        <p class="text-muted">Celebrating our top food donors who are making a real difference.</p>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow border-0 rounded-4">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th class="ps-4 py-3">Rank</th>
+                                <th class="py-3">Donor</th>
+                                <th class="py-3 text-end pe-4">Total Food Saved (kg)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for donor in top_donors %}
+                            <tr>
+                                <td class="ps-4 py-3 fw-bold">#{{ forloop.counter }}</td>
+                                <td class="py-3">
+                                    <span class="fw-bold text-dark">{{ donor.organization_name|default:donor.username }}</span>
+                                </td>
+                                <td class="py-3 text-end pe-4 text-primary fw-bold">{{ donor.total_donated }} kg</td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="3" class="text-center py-5 text-muted">No data available yet.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

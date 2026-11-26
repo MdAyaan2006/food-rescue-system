@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow border-0 p-5">
+            <h4 class="fw-bold text-center">Contact Us</h4>
+            {% if success %}<div class="alert alert-success">Sent!</div>{% endif %}
+            <form method="post">{% csrf_token %}{{ form.as_p }}<button class="btn btn-dark w-100 mt-3">Send</button></form>
+        </div>
+    </div>
+</div>
+{% endblock %}
